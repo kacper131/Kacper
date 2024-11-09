@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kacper Komputery - Sklep komputerowy</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+/* Resetowanie podstawowych styli */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, sans-serif;
+color: #333;
+background: linear-gradient(135deg, #f0f8ff, #ffe4e1);
+overflow-x: hidden;
+scroll-behavior: smooth;
+animation: backgroundShift 10s infinite alternate;
+}
+
+@keyframes backgroundShift {
+0% { background-position: 0% 50%; }
+100% { background-position: 100% 50%; }
+}
+
+/* Nagłówek */
+header {
+background: linear-gradient(90deg, #ff6347, #ff4500, #ff6347);
+color: white;
+padding: 20px;
+text-align: center;
+animation: slideDown 1.2s ease-in-out;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideDown {
+0% { transform: translateY(-100px); opacity: 0; }
+100% { transform: translateY(0); opacity: 1; }
+}
+
+.logo h1 {
+font-size: 3em;
+text-shadow: 0 0 15px #fff;
+animation: colorGlow 3s infinite alternate;
+}
+
+@keyframes colorGlow {
+0% { color: #ff6347; text-shadow: 0 0 10px #ff6347, 0 0 20px #ff4500; }
+33% { color: #1e90ff; text-shadow: 0 0 10px #1e90ff, 0 0 20px #00bfff; }
+66% { color: #32cd32; text-shadow: 0 0 10px #32cd32, 0 0 20px #7fff00; }
+100% { color: #ff69b4; text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
+}
+
+nav ul {
+list-style: none;
+display: flex;
+justify-content: center;
+gap: 15px;
+padding-top: 10px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+font-weight: bold;
+padding: 10px 15px;
+border-radius: 5px;
+transition: background-color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+background-color: #ff6347;
+color: #f0f8ff;
+transform: scale(1.1);
+}
+
+/* Sekcja główna */
+#home {
+background: linear-gradient(135deg, #ffd700, #ffebcd);
+padding: 50px 20px;
+text-align: center;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+margin: 20px auto;
+max-width: 90%;
+animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+0% { opacity: 0; transform: scale(0.8); }
+100% { opacity: 1; transform: scale(1); }
+}
+
+#home h2 {
+font-size: 2.5em;
+color: #333;
+animation: textGlow 2s infinite alternate;
+text-shadow: 0px 0px 20px #ff4500;
+}
+
+@keyframes textGlow {
+0% { text-shadow: 0 0 10px #ff6347; }
+100% { text-shadow: 0 0 20px #ff4500; }
+}
+
+#home p {
+font-size: 1.2em;
+margin: 20px 0;
+color: #444;
+}
+
+/* Sekcja Produkty */
+#products {
+padding: 40px;
+background-color: #fff5ee;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+text-align: center;
+animation: fadeInUp 1.5s ease;
+}
+
+#products h2 {
+font-size: 2.2em;
+color: #ff4500;
+margin-bottom: 20px;
+animation: fadeInGlow 1.5s infinite alternate;
+}
+
+@keyframes fadeInGlow {
+0% { text-shadow: 0 0 10px #ff4500; }
+100% { text-shadow: 0 0 20px #ff6347; }
+}
+
+.product-list {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+justify-content: center;
+margin-top: 20px;
+}
+
+.product-item {
+width: 250px;
+background-color: #ffffff;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+padding: 20px;
+text-align: center;
+transition: transform 0.4s;
+}
+
+.product-item:hover {
+transform: scale(1.05);
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+width: 100%;
+border-radius: 5px;
+margin-bottom: 10px;
+transition: transform 0.3s;
+}
+
+.product-item img:hover {
+transform: scale(1.1) rotate(3deg);
+}
+
+.product-item button {
+background: linear-gradient(45deg, #ff6347, #ff4500);
+color: white;
+border: none;
+padding: 10px 15px;
+font-size: 1.1em;
+font-weight: bold;
+border-radius: 50px;
+cursor: pointer;
+transition: transform 0.3s, background-color 0.3s;
+animation: pulse 2s infinite;
+}
+
+.product-item button:hover {
+background-color: #ff6347;
+transform: scale(1.1);
+}
+
+/* Sekcja Galeria */
+#gallery {
+background: linear-gradient(135deg, #c3cfe2, #ff69b4);
+padding: 40px;
+border-radius: 8px;
+text-align: center;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+animation: fadeIn 1.5s ease;
+}
+
+#gallery h2 {
+font-size: 2.2em;
+color: #007bff;
+margin-bottom: 20px;
+animation: fadeInGlow 1.5s infinite alternate;
+}
+
+.gallery-images {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+justify-content: center;
+margin-top: 20px;
+}
+
+.gallery-images img {
+width: 150px;
+border-radius: 5px;
+transition: transform 0.3s, box-shadow 0.3s;
+animation: fadeInZoom 0.8s ease-out;
+}
+
+.gallery-images img:hover {
+transform: scale(1.2) rotate(-5deg);
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInZoom {
+0% { opacity: 0; transform: scale(0.8); }
+100% { opacity: 1; transform: scale(1); }
+}
+
+/* Sekcja Kontakt */
+#contact {
+background-color: #fce4ec;
+padding: 40px;
+border-radius: 12px;
+text-align: center;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+animation: fadeInUp 1.5s ease-out;
+}
+
+#contact h2 {
+font-size: 2.5em;
+color: #ff4081;
+animation: bounceIn 1.5s ease infinite alternate;
+text-shadow: 0px 0px 10px rgba(255, 64, 129, 0.8);
+}
+
+.contact-form {
+margin-top: 20px;
+display: flex;
+flex-direction: column;
+gap: 15px;
+max-width: 400px;
+margin: 20px auto;
+animation: fadeIn 1.5s ease-out;
+}
+
+.contact-form input, .contact-form textarea {
+padding: 15px;
+font-size: 1em;
+border-radius: 5px;
+border: 1px solid #ddd;
+transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+border-color: #ff4081;
+outline: none;
+box-shadow: 0px 0px 10px rgba(255, 64, 129, 0.5);
+}
+
+.contact-form button {
+background: linear-gradient(45deg, #ff4081, #f50057);
+color: white;
+font-size: 1.2em;
+border: none;
+padding: 12px 20px;
+border-radius: 50px;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.3s;
+box-shadow: 0 4px 10px rgba(255, 64, 129, 0.4);
+animation: pulse 2s infinite;
+}
+
+.contact-form button:hover {
+transform: scale(1.1);
+background: linear-gradient(45deg, #f50057, #ff4081);
+}
+
+/* Sekcja Koszyk */
+#cart {
+background: #f8f9fa;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 8px 20px rgba(0, 128, 0, 0.3);
+text-align: center;
+animation: fadeInUp 1.5s ease;
+max-width: 90%;
+margin: 20px auto;
+}
+
+#cart h2 {
+font-size: 2em;
+color: #007bff;
+text-align: left;
+padding: 15px;
+border-bottom: 1px solid #ddd;
+}
+
+.cart-items {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 20px;
+}
+
+.cart-item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 15px;
+border: 1px solid #ddd;
+border-radius: 8px;
+background-color: #fff;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+width: 80px;
+height: 80px;
+border-radius: 5px;
+}
+
+.cart-item-info {
+flex: 1;
+padding-left: 15px;
+}
+
+.cart-item-info p {
+margin: 0;
+font-weight: bold;
+}
+
+.cart-item-price {
+font-weight: bold;
+color: #28a745;
+font-size: 1.2em;
+}
+
+.quantity-controls {
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.quantity-controls button {
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+font-size: 1em;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.3s;
+}
+
+.quantity-controls button:hover {
+background-color: #0056b3;
+transform: scale(1.1);
+}
+
+.total-amount {
+font-weight: bold;
+color: #333;
+font-size: 1.4em;
+margin-top: 20px;
+text-align: right;
+}
+
+.checkout-button {
+background: linear-gradient(45deg, #28a745, #34ce57);
+color: white;
+border: none;
+padding: 12px 25px;
+font-size: 1.2em;
+font-weight: bold;
+border-radius: 50px;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.3s;
+animation: pulse 1.5s infinite;
+margin-top: 15px;
+display: block;
+width: 100%;
+}
+
+.checkout-button:hover {
+background-color: #218838;
+transform: scale(1.05);
+}
+
+/* Stylowanie i animacja alertów */
+.alert {
+position: fixed;
+top: 20px;
+right: 20px;
+background-color: #ff9800;
+color: white;
+padding: 15px 30px;
+border-radius: 8px;
+font-weight: bold;
+font-size: 1.2em;
+z-index: 1000;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+animation: slideIn 0.5s ease-out, fadeOutAlert 3s ease 2.5s;
+}
+
+@keyframes slideIn {
+0% { transform: translateX(100%); opacity: 0; }
+100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOutAlert {
+0% { opacity: 1; }
+100% { opacity: 0; transform: translateX(100%); }
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+(function() {
+emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS user ID
+})();
+
+let cart = [];
+
+/* Funkcja do wyświetlania alertów */
+function showAlert(message, color = "#ff9800") {
+const alertBox = document.createElement("div");
+alertBox.className = "alert";
+alertBox.style.backgroundColor = color;
+alertBox.textContent = message;
+document.body.appendChild(alertBox);
+
+setTimeout(() => {
+alertBox.remove();
+}, 3000);
+}
+
+/* Dodawanie produktu do koszyka */
+function addToCart(product, price, imageSrc) {
+const existingProduct = cart.find(item => item.product === product);
+if (existingProduct) {
+existingProduct.quantity++;
+} else {
+cart.push({ product, price, quantity: 1, imageSrc });
+}
+showAlert(`${product} został dodany do koszyka!`, "#ff9800");
+updateCartDisplay();
+}
+
+/* Aktualizacja koszyka */
+function updateCartDisplay() {
+const cartItems = document.querySelector(".cart-items");
+const totalPrice = document.getElementById("total-price");
+cartItems.innerHTML = "";
+
+let sum = 0;
+cart.forEach(item => {
+const itemElement = document.createElement("div");
+itemElement.className = "cart-item";
+
+const productImage = document.createElement("img");
+productImage.src = item.imageSrc;
+productImage.alt = item.product;
+
+const productInfo = document.createElement("div");
+productInfo.className = "cart-item-info";
+productInfo.innerHTML = `<p>${item.product}</p>`;
+
+const quantityControls = document.createElement("div");
+quantityControls.className = "quantity-controls";
+
+const minusButton = document.createElement("button");
+minusButton.innerHTML = "-";
+minusButton.onclick = () => {
+if (item.quantity > 1) {
+item.quantity--;
+} else {
+cart = cart.filter(cartItem => cartItem !== item);
+}
+updateCartDisplay();
+};
+
+const quantityDisplay = document.createElement("span");
+quantityDisplay.textContent = item.quantity;
+
+const plusButton = document.createElement("button");
+plusButton.innerHTML = "+";
+plusButton.onclick = () => {
+item.quantity++;
+updateCartDisplay();
+};
+
+const priceDisplay = document.createElement("p");
+priceDisplay.className = "cart-item-price";
+priceDisplay.textContent = `${(item.price * item.quantity).toFixed(2)} PLN`;
+
+quantityControls.appendChild(minusButton);
+quantityControls.appendChild(quantityDisplay);
+quantityControls.appendChild(plusButton);
+
+itemElement.appendChild(productImage);
+itemElement.appendChild(productInfo);
+itemElement.appendChild(quantityControls);
+itemElement.appendChild(priceDisplay);
+
+cartItems.appendChild(itemElement);
+sum += item.price * item.quantity;
+});
+
+totalPrice.textContent = sum.toFixed(2);
+}
+
+function checkout() {
+if (cart.length === 0) {
+showAlert("Koszyk jest pusty. Dodaj produkty przed zakupem.");
+} else {
+showAlert("Dziękujemy za zakupy! Twój koszyk zostanie przetworzony.", "#28a745");
+cart = [];
+updateCartDisplay();
+}
+}
+
+/* Funkcja wysyłania formularza kontaktowego */
+function submitContactForm(event) {
+event.preventDefault();
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("message").value;
+if (name && email && message) {
+emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+from_name: name,
+from_email: email,
+message: message
+}).then(() => {
+showAlert("Wiadomość została wysłana!", "#28a745");
+document.getElementById("contactForm").reset();
+}).catch(() => {
+showAlert("Błąd wysyłania wiadomości. Spróbuj ponownie.", "#ff6347");
+});
+} else {
+showAlert("Proszę wypełnić wszystkie pola formularza.", "#ff9800");
+}
+}
+</script>
+</head>
+<body>
+
+<header>
+<div class="logo">
+<h1>Kacper Sklep Komputerowy</h1>
+</div>
+<nav>
+<ul>
+<li><a href="#home">Strona Główna</a></li>
+<li><a href="#products">Nasze Produkty</a></li>
+<li><a href="#gallery">Galeria</a></li>
+<li><a href="#contact">Kontakt</a></li>
+<li><a href="javascript:void(0)" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i> Koszyk</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<section id="home">
+<h2>Strona Główna</h2>
+<p>Oferujemy najnowszy sprzęt komputerowy dla graczy i profesjonalistów.</p>
+</section>
+
+<section id="products">
+<h2>Nasze Produkty</h2>
+<div class="product-list">
+<div class="product-item">
+<img src="img/laptop.jpg" alt="Laptop Gamingowy">
+<h3>Laptop Gamingowy</h3>
+<p>Cena: 3000 PLN</p>
+<button onclick="addToCart('Laptop Gamingowy', 3000, 'img/laptop.jpg')">Dodaj do koszyka</button>
+</div>
+<div class="product-item">
+<img src='img/stacjonarny.jpg' alt="Komputer Stacjonarny">
+<h3>Komputer Stacjonarny</h3>
+<p>Cena: 2500 PLN</p>
+<button onclick="addToCart('Komputer Stacjonarny', 2500, 'img/stacjonarny.jpg')">Dodaj do koszyka</button>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<h2>Galeria</h2>
+<p>Zobacz nasze produkty w akcji!</p>
+<div class="gallery-images">
+<img src="img/product1.jpg" alt="Produkt 1">
+<img src="img/product2.jpg" alt="Produkt 2">
+</div>
+</section>
+
+<section id="contact">
+<h2>Kontakt</h2>
+<p>Skontaktuj się z nami, aby dowiedzieć się więcej o naszych produktach.</p>
+<form id="contactForm" class="contact-form" onsubmit="submitContactForm(event)">
+<input type="text" id="name" placeholder="Twoje imię">
+<input type="email" id="email" placeholder="Twój adres email">
+<textarea id="message" rows="4" placeholder="Twoja wiadomość"></textarea>
+<button type="submit">Wyślij wiadomość</button>
+</form>
+</section>
+</main>
+
+<div id="cart">
+<h2>Twój Koszyk <i class="fas fa-shopping-cart"></i></h2>
+<div class="cart-items"></div>
+<div class="total-amount">Łączna kwota: <span id="total-price">0</span> PLN</div>
+<button class="checkout-button" onclick="checkout()">Kup teraz</button>
+</div>
+
+</body>
+</html>
